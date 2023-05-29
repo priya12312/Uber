@@ -4,3 +4,4 @@ from django.contrib import admin
 from users.models import *
 admin.site.register(Students,)
 admin.site.register(Orders,)
+admin.site.register(StudentsAddress,)

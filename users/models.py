@@ -14,6 +14,9 @@ class Students(models.Model):
     gender_type = models.IntegerField(
         choices = GENDER_TYPE,
     )
+    def __str__(self):
+        return str(self.name)
+
 class Orders(models.Model):
     name = models.CharField(max_length = 15,null = True,blank = True)
     price = models.IntegerField(max_length = 15,null = True,blank = True)
@@ -21,3 +24,16 @@ class Orders(models.Model):
     quantity = models.IntegerField(max_length = 15,null = True,blank = True)
     address = models.TextField(max_length = 15,null = True,blank = True)
     place_at = models.DateField(max_length = 15,null = True,blank = True)
+
+class StudentsAddress(models.Model):
+    student = models.ForeignKey(Students,on_delete = models.CASCADE,null=True)
+    street_name = models.CharField(max_length = 50,null = True,blank = True)
+    house_no = models.IntegerField(max_length = 15,null = True,blank = True)
+    city = models.CharField(max_length = 15,null = True,blank = True)
+    state = models.CharField(max_length = 15,null = True,blank = True)
+    country = models.CharField(max_length = 15,null = True,blank = True)
+    pincode = models.IntegerField(max_length = 15,null = True,blank = True)
+    def __str__(self):
+        return str(self.street_name)
+
+
