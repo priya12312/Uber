@@ -18,10 +18,10 @@ class StudentsAddressSerializers(serializers.ModelSerializer):
         fields = '__all__'
 
 class StudentDetailsAddressSerializers(serializers.ModelSerializer):
-    address = StudentsAddress()
+    students_address = StudentsAddressSerializers(many=True)
     class Meta:
         model = Students
-        fields = ('name','surname','birth','mobile','address')
+        fields = ('name','surname','birth','mobile','students_address')
 
 
 

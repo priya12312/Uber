@@ -26,7 +26,7 @@ class Orders(models.Model):
     place_at = models.DateField(max_length = 15,null = True,blank = True)
 
 class StudentsAddress(models.Model):
-    student = models.ForeignKey(Students,on_delete = models.CASCADE,null=True)
+    student = models.ForeignKey(Students,on_delete = models.CASCADE,null=True,related_name="students_address")
     street_name = models.CharField(max_length = 50,null = True,blank = True)
     house_no = models.IntegerField(max_length = 15,null = True,blank = True)
     city = models.CharField(max_length = 15,null = True,blank = True)
