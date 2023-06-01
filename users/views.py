@@ -57,5 +57,13 @@ class StudentDetailsAddressView(APIView):
         instance = Students.objects.filter(id=pk)
         serializer = StudentDetailsAddressSerializers(instance,many=True)
         return Response(serializer.data)
+class StudentAddressDeleteView(APIView):
+    def get(self,request,pk):
+        instance = Students.objects.get(id=pk)
+        address = StudentsAddress.objects.filter(student=instance)
+        address.delete()
+        return Response({"message":"delete successfully"})
+
+        
 
     
