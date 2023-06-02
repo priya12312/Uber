@@ -9,4 +9,5 @@ urlpatterns += [
     path('delete-students/<int:pk>',DeleteStudentView.as_view()),
     path('students-details-address/<int:pk>',StudentDetailsAddressView.as_view()),
     path('delete-address/<int:pk>',StudentAddressDeleteView.as_view()),
+    path('update-student/<int:pk>',StudentUpdateView.as_view()),
 ]
